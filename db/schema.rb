@@ -66,6 +66,13 @@ ActiveRecord::Schema.define(version: 2023_07_10_093441) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.string "last_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.string "postal_code", null: false
+    t.string "adress", null: false
+    t.string "telephone_number", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "is_deleted", default: false
@@ -91,7 +98,7 @@ ActiveRecord::Schema.define(version: 2023_07_10_093441) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "customer", null: false
+    t.integer "customer_id", null: false
     t.string "postal_code", null: false
     t.integer "payment_method", default: 0, null: false
     t.integer "total_amount", null: false

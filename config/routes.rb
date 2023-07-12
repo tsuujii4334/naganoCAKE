@@ -11,6 +11,22 @@ devise_for :customers, skip: [:passwords], controllers: {
 devise_for :admin, skip: [:registrations, :passwords], controllers: {
   sessions: "admin/sessions"
 }
+
+  namespace :public do
+    get 'orders/new'
+    get 'orders/completion'
+    get 'orders/index'
+    get 'orders/show'
+    get 'cart_items/index'
+    get 'customers/show'
+    get 'customers/edit'
+    get 'customers/confirm'
+    get 'items/index' => 'public/items'
+    get 'items/show' => 'public/items/:id'
+    get 'homes/top' => 'public/homes/'
+    get 'homes/about'
+  end
+  
   namespace :admin do
     get 'orders/show'
     get 'customers/index'
@@ -21,23 +37,6 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
     get 'items/show'
     get 'items/edit'
     get 'homes/top'
-    get 'sessions/new'
-  end
-  namespace :public do
-    get 'orders/new'
-    get 'orders/completion'
-    get 'orders/index'
-    get 'orders/show'
-    get 'cart_items/index'
-    get 'customers/show'
-    get 'customers/edit'
-    get 'customers/confirm'
-    get 'sessions/new'
-    get 'registrations/new'  
-    get 'items/index' => 'public/items'
-    get 'items/show' => 'public/items/:id'
-    get 'homes/top' => 'public/homes/'
-    get 'homes/about'
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
