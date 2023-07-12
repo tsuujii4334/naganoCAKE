@@ -28,15 +28,15 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
   end
   
   namespace :admin do
-    get 'orders/show'
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
-    get 'items/index'
-    get 'items/new'
-    get 'items/show'
-    get 'items/edit'
-    get 'homes/top'
+    root to: 'homes#top'
+    get 'orders/show' => 'orders/:id'
+    get 'customers/index' => 'customers'
+    get 'customers/show' => 'customers/:id'
+    get 'customers/edit' => 'customers/:id:edit'
+    get 'items/index' => 'items'
+    get 'items/new' => 'items/new'
+    get 'items/show' => 'items/:id'
+    get 'items/edit' => 'items/:id/edit'
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
