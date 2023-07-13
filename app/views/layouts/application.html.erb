@@ -28,38 +28,34 @@
             <% end %>
           </li>
           <li>
-            <a class="nav-link text-light" href="/users">                          <!--管理者と顧客のヘッダーを分けたいが方法がわからない-->
+            <a class="nav-link text-light" href="/admin/customers/index">                          <!--管理者と顧客のヘッダーを分けたいが方法がわからない-->
               会員一覧</a>
           </li>
           <li>
-            <a class="nav-link text-light" href="/books">
+            <a class="nav-link text-light" href="/admin/orders">
               注文履歴一覧</a>
           </li>
           <li>
-            <a class="nav-link text-light" rel="nofollow" data-method="delete" href="/users/sign_out">
-              ジャンル一覧</a>
-          </li>
-          <li>
-            <a class="nav-link text-light" href="/books">
+            <a class="nav-link text-light" href="/admin/sign_out">
               ログアウト</a>
           </li>
 
               <% else %>
 
           <li>
-            <a class="nav-link text-light" href="/">
+            <a class="nav-link text-light" href="public/about">
               About</a>
           </li>
           <li>
-            <a class="nav-link text-light" href="/home/about">
+            <a class="nav-link text-light" href="/admin/items">
               商品一覧</a>
           </li>
           <li>
-            <a class="nav-link text-light" href="/users/sign_up">
+            <a class="nav-link text-light" href="/public/sign_up">
               新規登録</a>
           </li>
           <li>
-            <a class="nav-link text-light" href="/users/sign_in">
+            <a class="nav-link text-light" href="/admin/sign_in">
               ログイン</a>
           </li>
               <% end %>
