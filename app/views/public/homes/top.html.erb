@@ -4,13 +4,7 @@
 <!--すべての商品を見るリンクタグ（右下）-->
 <div class="container px-5"><!--このpxはpadding x方向を意味する。pyはy方向。-->
 <!--エラー時の記述-->
-<% if @book.errors.any? %>
-  <h2><%= @book.errors.count %>errors prohibited this obj from being saved:</h2>
-    <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+
 <!--ジャンル検索（表示のみ）の記述-->
 <div class="container">
   <div class="row-gy-1">
@@ -45,23 +39,6 @@
           </tr>
        </thead>
        <tbody>
-        <% @books.each do |book| %>
-        <tr>
-          <td>
-            <%= link_to user_path(book.user.id) do %>
-              <%= image_tag book.user.get_profile_image(100,100) %>
-            <% end %>
-          </td>
-          <td>
-            <%= link_to book_path(book.id) do %>
-              Title：<%= book.title %>
-            <% end %>
-          </td>
-          <td>
-            Opinion：<%= book.body %>
-          </td>
-        </tr>
-        <% end %>
         </tbody>
       </table>
   </div>

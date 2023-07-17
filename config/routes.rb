@@ -11,9 +11,9 @@ devise_for :customers, skip: [:passwords], controllers: {
 devise_for :admin, skip: [:registrations, :passwords], controllers: {
   sessions: "admin/sessions"
 }
-
+root to: 'public/homes#top'
   namespace :public do
-    root to: 'homes#top'
+    
     get 'orders/new'
     get 'orders/completion'
     get 'orders/index' => 'orders'

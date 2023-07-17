@@ -20,46 +20,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
-            <% if user_signed_in? %>
-          <li>
-            <%= link_to user_path(current_user),class:"nav-link text-light" do %> <!--hrefでログインユーザーページを指定する方法がわからない-->
-              商品一覧                                   <!-- link to passの形に書き換えて解決。パスの後にclass指定することで、CSSを適応させることができる。-->
-            <% end %>
-          </li>
-          <li>
-            <a class="nav-link text-light" href="/admin/customers/index">                          <!--管理者と顧客のヘッダーを分けたいが方法がわからない-->
-              会員一覧</a>
-          </li>
-          <li>
-            <a class="nav-link text-light" href="/admin/orders">
-              注文履歴一覧</a>
-          </li>
-          <li>
-            <a class="nav-link text-light" href="/admin/sign_out">
-              ログアウト</a>
-          </li>
 
-              <% else %>
-
-          <li>
-            <a class="nav-link text-light" href="public/about">
-              About</a>
-          </li>
-          <li>
-            <a class="nav-link text-light" href="/admin/items">
-              商品一覧</a>
-          </li>
-          <li>
-            <a class="nav-link text-light" href="/public/sign_up">
-              新規登録</a>
-          </li>
-          <li>
-            <a class="nav-link text-light" href="/admin/sign_in">
-              ログイン</a>
-          </li>
-              <% end %>
-          </ul>
           </div>
           </div>
         </nav>
