@@ -13,6 +13,7 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
 }
 
   namespace :public do
+    root to: 'homes#top'
     get 'orders/new'
     get 'orders/completion'
     get 'orders/index' => 'orders'
@@ -26,9 +27,11 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
     get 'homes/top' => 'public/homes/'
     get 'homes/about'
   end
-  
+ 
+
   namespace :admin do
-    root to: 'homes#top'
+   
+    
     get 'orders/show' => 'orders/:id'
     get 'customers/index' => 'customers'
     get 'customers/show' => 'customers/:id'
