@@ -39,6 +39,23 @@
           </tr>
        </thead>
        <tbody>
+        <% @items.each do |item| %>
+        <tr>
+          <td>
+            <%= link_to public_show_items_path(item.id) do %>
+              <%= image_tag item.get_profile_image(100,100) %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to public_show_items_path(item.id) do %>
+              Title：<%= item.name %>
+            <% end %>
+          </td>
+          <td>
+            Opinion：<%= item.price %>
+          </td>
+        </tr>
+        <% end %>
         </tbody>
       </table>
   </div>
