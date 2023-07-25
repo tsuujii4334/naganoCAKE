@@ -3,6 +3,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def new
+    @items = Item.new
   end
   
   def create
@@ -16,6 +17,12 @@ class Admin::ItemsController < ApplicationController
   end
   
   def update
+    
+  end
+  
+  private
+  def item_params
+    params.require(:item).permit(:image,:name,:introduction,:price)
     
   end
 end
