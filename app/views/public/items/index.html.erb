@@ -1,6 +1,13 @@
 <h2>商品一覧</h2>
-<div class ="contaier">
+<div class ="contaier px-5">
   <div class="row">
-    
+    <%= @items.each do |item| %>
+    <div class="col">
+      <%= image_tag item.ger_image(100,100) %>
+      <%= item.name %> 
+      <%= item.price %>
+    </div>
+    <% end %>
+    <%= paginate @items %>
   </div>
 </div>

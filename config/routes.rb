@@ -13,7 +13,7 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
 }
 root to: 'public/homes#top'
   namespace :public do
-    
+
     get 'orders/new'
     post 'orders/confirm' => '/orders/confirm'
     get 'orders/completion'
@@ -22,7 +22,7 @@ root to: 'public/homes#top'
     get  'orders/:id' => 'orders#show', as: 'show_orders'
     get 'cart_items/index' => '/cart_items'
     patch 'cart_items/:id' => 'cart_items#update', as: 'update_cart_items'
-    delete 'cart_items/:id' => 'cart_items#destroy', as: 'destroy_cart_items' 
+    delete 'cart_items/:id' => 'cart_items#destroy', as: 'destroy_cart_items'
     delete 'cart_items/destroy_all' => '/cart_items/destroy_all'
     post 'cart_items/create' => '/cart_items'
     get 'customers/show' => '/customers/mypage'
@@ -30,24 +30,24 @@ root to: 'public/homes#top'
     patch 'customers/update' => '/customers'
     get 'customers/confirm'
     patch 'customers/withdrawal' => '/customers/withdrawal'
-    get 'items/index' => '/items'
-    get 'items/:id' => 'items#show', as: 'show_items' 
+    get '/items' => 'items#index'
+    get 'items/:id' => 'items#show', as: 'show_items'
     get '/' => 'homes#top'
-    get 'about' => 'homes#about' 
+    get 'about' => 'homes#about'
   end
- 
+
 
   namespace :admin do
-   
-    
+
+
     get 'admin/orders/:id' => 'orders#show', as: 'show_orders'
     get 'customers/index' => '/admin/customers'
-    get 'admin/customers/:id' => 'customers#show', as: 'show_customers' 
+    get 'admin/customers/:id' => 'customers#show', as: 'show_customers'
     get 'admin/customers/:id:edit' => 'customers#edit', as: 'edit_customers'
     get 'items/index' => '/admin/items'
     get 'items/new' => '/admin/items/new'
-    get 'admin/items/:id' => 'items#show', as: 'show_items' 
-    get 'admin/items/:id/edit' => 'items#edit', as: 'edit_items'  
+    get 'admin/items/:id' => 'items#show', as: 'show_items'
+    get 'admin/items/:id/edit' => 'items#edit', as: 'edit_items'
     get 'homes/top' => '/admin'
   end
 
