@@ -40,14 +40,14 @@ root to: 'public/homes#top'
   namespace :admin do
 
 
-    get 'admin/orders/:id' => 'orders#show', as: 'show_orders'
+    get 'orders/:id' => 'orders#show', as: 'show_orders'
     get 'customers/index' => '/admin/customers'
-    get 'admin/customers/:id' => 'customers#show', as: 'show_customers'
-    get 'admin/customers/:id:edit' => 'customers#edit', as: 'edit_customers'
-    get 'items/index' => '/admin/items'
+    get 'customers/:id' => 'customers#show', as: 'show_customers'
+    get 'customers/:id:edit' => 'customers#edit', as: 'edit_customers'
+    get 'items' => 'items#index'
     get 'items/new' => '/admin/items/new'
-    get 'admin/items/:id' => 'items#show', as: 'show_items'
-    get 'admin/items/:id/edit' => 'items#edit', as: 'edit_items'
+    get 'items/:id' => 'items#show', as: 'show_items'
+    get 'items/:id/edit' => 'items#edit', as: 'edit_items'
     get 'homes/top' => '/admin'
   end
 

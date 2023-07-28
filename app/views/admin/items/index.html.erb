@@ -16,15 +16,15 @@
         <% @items.each do |item| %>
         <tr>
           <td>
-            <%= image_tag book.user.get_profile_image(100,100) %>
+            <%= item.id %>
           </td>
           <td>
-            <%= link_to book_path(book.id) do %>
-              Title：<%= book.title %>
+            <%= link_to admin_show_items_path(item.id) do %>
+              <%= item.name %>
             <% end %>
           </td>
           <td>
-            Opinion：<%= book.body %>
+            <%= item.price %>
           </td>
         </tr>
         <% end %>
