@@ -4,15 +4,15 @@
     <div class="col-md-3">
       
 <h2>User Info</h2>
-  <%= image_tag @item.get_image(100,100) %>
+  <%= image_tag @item.get_image(100,100) %><!--モデルでエラー-->
         <p>商品名</p>
            <%= @item.name %>
         <p>商品説明</p>
            <%= @item.introduction %>
-        <p>税込価格</br>
+        <p>税込価格</br><!--税込み税抜きの書き方が-->
            (税抜価格)
         </p>
            <%= @item.price %>
-  <%= link_to admin_edit_items_path(@item.id),class:"btn btn-block btn-outline-secondary" do %>
+  <%= link_to admin_edit_item_path(@item.id),class:"btn btn-block btn-outline-secondary" do %>
     <p>編集する</p>
   <% end %>
