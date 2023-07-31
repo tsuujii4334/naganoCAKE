@@ -1,0 +1,106 @@
+
+  <div class="container px-5,py-10">
+    <%= form_with model: @customer do |f| %>
+    <%= render "public/shared/error_messages", resource: resource %>
+    <div class="row">
+      <div class="col-md">
+        <h2>
+         <%= @customer.full_name %>の会員情報編集
+        </h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md">
+        <p>会員ID</p>
+        <%= @customer.id %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <p>氏名</p>
+      </div>
+      <div class="col-md-4">
+        <div class="field">
+            <%= f.text_field :last_name, autofocus: true, autocomplete: "family-name" %>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="field">
+            <%= f.text_field :first_name, autofocus: true, autocomplete: "given-name" %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <p>フリガナ</p>
+      </div>
+      <div class="col-md-4">
+        <div class="field">
+            <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "name" %>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="field">
+            <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "name" %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        郵便番号
+      </div>
+      <div class="col-md-4">
+        <div class="field">
+            <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal-code" %>
+        </div>
+      </div>
+      <div class="col-md-5">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <p>住所</p>
+      </div>
+      <div class="col-md-9">
+        <div class="field">
+            <%= f.text_field :adress, autofocus: true, autocomplete: "street-address" %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        電話番号
+      </div>
+      <div class="col-md-4">
+        <div class="field">
+            <%= f.text_field :telephone_number, autofocus: true, autocomplete: "tel" %>
+        </div>
+      </div>
+      <div class="col-md-5">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <p>メールアドレス</p>
+      </div>
+      <div class="col-md-4">
+        <div class="field">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+      </div>
+      <div class="col-md-5">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+      </div>
+      <div class="col-md-4">
+        <div class="actions">
+          <%= f.submit "変更を保存" %>
+        </div>
+      </div>
+      <div class="col-md-5">
+      </div>
+    </div>
+    <% end %>
+  </div>

@@ -1,0 +1,28 @@
+<!--customershowの記述-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h3>
+           <%= @customer.full_name %>さんの会員詳細
+      </h3>
+        <p>会員ID</p>
+           <%= @customer.id %>
+        <p>氏名</p>
+           <%= @customer.last_name %> <%= @customer.first_name %>
+        <p>フリガナ</br>
+           <%= @customer.last_name_kana %> <%= @customer.first_name_kana %>
+        </p>
+        <p>郵便番号</p>
+           <%= @customer.postal_code %>
+        <p>住所</p>
+           <%= @customer.address %>
+        <p>電話番号</p>
+           <%= @customer.telephone_number %>
+        <p>メールアドレス</p>
+           <%= @customer.email %>
+       <%= link_to admin_edit_customer_path(@customer.id),class:"btn btn-block btn-outline-secondary" do %>
+        <p>編集する</p>
+       <% end %>
+    </div>
+  </div>
+</div>
