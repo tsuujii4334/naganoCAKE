@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   # 顧客用
 # URL /customers/sign_in ...
-devise_for :customers, skip: [:passwords], controllers: {
+devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
-
 # 管理者用
 # URL /admin/sign_in ...
 devise_for :admin, skip: [:registrations, :passwords], controllers: {
@@ -18,14 +17,14 @@ root to: 'public/homes#top'
     post 'orders/confirm' => '/orders/confirm'
     get 'orders/completion'
     post 'orders/create' => '/order'
-    get 'orders/index' => '/order'
+    get  '/orders' => 'orders#index' 
     get  'orders/:id' => 'orders#show', as: 'show_order'
     get 'cart_items/index' => '/cart_item'
     patch 'cart_items/:id' => 'cart_items#update', as: 'update_cart_item'
     delete 'cart_items/:id' => 'cart_items#destroy', as: 'destroy_cart_item'
     delete 'cart_items/destroy_all' => '/cart_items/destroy_all'
     post 'cart_items/create' => '/cart_item'
-    get 'customers/show' => '/customers/mypage'
+    get 'customers/mypage' => 'customers#show', as: 'mypage_customers'
     get 'customers/edit'
     patch 'customers/update' => '/customer'
     get 'customers/confirm'
