@@ -1,7 +1,7 @@
 
   <div class="container px-5,py-10">
-    <%= form_with model: @customers, url: public_customers_update_path do |f| %>
-    <%= render "public/shared/error_messages", resource: resource %>
+    <%= form_with model: @customer, url: public_customers_update_path do |f| %>
+
     <div class="row">
       <div class="col-md-3">
         <p>名前</p>
@@ -91,7 +91,7 @@
         </div>
       </div>
       <div class="col-md-5">
-        <%= link_to public_customers_confirm_path(@customer.id),class:"btn btn-block btn-outline-secondary" do %>
+        <%= link_to public_customers_confirm_path(@customer),class:"btn btn-block btn-outline-secondary" do %>
           <p>退会する</p>
         <% end %>
       </div>
