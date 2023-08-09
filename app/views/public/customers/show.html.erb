@@ -3,7 +3,7 @@
   <div class="col-md-8 offset-md-1">
    <!--customerindexの記述-->
     <h3>マイページ</h3>
-    <h2>登録情報</h2>
+    <span>登録情報</span>
     <%= link_to public_customers_edit_path(current_customer),class:"btn btn-block btn-outline-secondary" do %>
      <p>編集する</p>
     <% end %>
@@ -12,7 +12,9 @@
        <tbody>
         <tr>
           <th>
-            氏名
+            <td>
+             氏名
+            </td>
           </th>
           <td>
             <%= @customer.last_name %> <%= @customer.first_name %>
@@ -70,6 +72,7 @@
         </tr>
         </tbody>
       </table>
+      <span>注文履歴</span>
      <%= link_to public_orders_path(@orders),class:"btn btn-block btn-outline-secondary" do %>
       <p>一覧を見る</p>
      <% end %>
