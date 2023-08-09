@@ -1,0 +1,13 @@
+<!--itemshowの記述-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+  <%= image_tag @item.get_image(100,100) %><!--モデルでエラー-->
+       <h2><%= @item.name %></h2>
+           <%= @item.introduction %>
+           <%= @item.price %>
+           <%= f.hidden_field :amount %>
+           <%= f.select :amount, *[1..10] %>
+  <%= link_to public_cart_items_index_path,class:"btn btn-block btn-outline-secondary" do %>
+    <p>カートに入れる</p>
+  <% end %>
