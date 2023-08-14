@@ -20,17 +20,17 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                  if admin_signed_in? 
-            if request.fullpath.include? "/admin"
-              //admin側のheaderを返す
-            else
-              // user側のheaderを返す
-            end
-          elsif user_signed_in?
-            // userログイン状態の際に、表示したいheaderのメニューを記載
-          else
-            // adminでもuserでもログインしていない時に表示するheaderのメニューを記載　<!--書き方がわからないので質問する。-->
-          end
+          <% if admin_signed_in? %>
+            <% if request.fullpath.include? "/admin" %>
+                //admin側のheaderを返す
+              <% else %>
+                // user側のheaderを返す
+             <% end %>
+            <% elsif user_signed_in? %>
+              // userログイン状態の際に、表示したいheaderのメニューを記載
+            <% else %>
+              // adminでもuserでもログインしていない時に表示するheaderのメニューを記載
+          <% end %>
           </div>
           </div>
         </nav>
