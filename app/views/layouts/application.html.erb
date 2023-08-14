@@ -22,14 +22,93 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <% if admin_signed_in? %>
             <% if request.fullpath.include? "/admin" %>
-                //admin側のheaderを返す
-              <% else %>
-                // user側のheaderを返す
-             <% end %>
-            <% elsif user_signed_in? %>
-              // userログイン状態の際に、表示したいheaderのメニューを記載
+                <!--admin側のheaderを返す-->
+            <li>
+              <a class="nav-link text-light" href="/admin/items/index">
+                商品一覧
+              </a>
+            </li>
+            <li>
+              <a class="nav-link text-light" href="/admin/customers/index">
+                会員一覧
+              </a>
+            </li>
+            <li>
+              <a class="nav-link text-light" href="/admin">
+                注文履歴一覧
+              </a>
+            </li>
+            <li>
+              <a class="nav-link text-light" rel="nofollow" data-method="delete" href="/admin/sign_out">
+                ログアウト
+              </a>
+            </li>
             <% else %>
-              // adminでもuserでもログインしていない時に表示するheaderのメニューを記載
+                <!--user側のheaderを返す-->
+            <li>
+              <a class="nav-link text-light" href="/public/about">
+                About
+              </a>
+            </li>
+            <li>
+              <a class="nav-link text-light" href="/public/items">
+                商品一覧
+              </a>
+            </li>
+            <li>
+              <a class="nav-link text-light" href="/customers/sign_up">
+                新規登録
+              </a>
+            </li>
+            <li>
+              <a class="nav-link text-light" href="/customers/sign_in">
+                ログイン
+              </a>
+            </li>
+            <% end %>
+          <% elsif customer_signed_in? %>
+              <!--customerログイン状態の際に、表示したいheaderのメニューを記載-->
+            <li>
+              <%= link_to public_mypage_customers_path(current_customer),class:"nav-link text-light" do %> <!--hrefでログインユーザーページを指定する方法がわからない-->
+                マイページ                                    <!-- link to passの形に書き換えて解決。パスの後にclass指定することで、CSSを適応させることができる。-->
+              <% end %>
+            </li>
+            <li>
+              <a class="nav-link text-light" href="/public/items">
+                商品一覧
+              </a>
+            </li>
+            <li>
+              <%= link_to public_cart_items_path(current_customer),class:"nav-link text-light" do %> <!--hrefでログインユーザーページを指定する方法がわからない-->
+                カート                                    <!-- link to passの形に書き換えて解決。パスの後にclass指定することで、CSSを適応させることができる。-->
+              <% end %>
+            </li>
+            <li>
+              <a class="nav-link text-light" rel="nofollow" data-method="delete" href="/customers/sign_out">
+                ログアウト
+              </a>
+            </li>
+            <% else %>
+            <li>
+              <a class="nav-link text-light" href="/public/about">
+                About
+              </a>
+            </li>
+            <li>
+              <a class="nav-link text-light" href="/public/items">
+                商品一覧
+              </a>
+            </li>
+            <li>
+              <a class="nav-link text-light" href="/customers/sign_up">
+                新規登録
+              </a>
+            </li>
+            <li>
+              <a class="nav-link text-light" href="/customers/sign_in">
+                ログイン
+              </a>
+            </li><!-- adminでもcustomerでもログインしていない時に表示するheaderのメニューを記載 -->
           <% end %>
           </div>
           </div>
