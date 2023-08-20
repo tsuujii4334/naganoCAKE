@@ -46,12 +46,12 @@
             <% else %>
                 <!--user側のheaderを返す-->
             <li>
-              <a class="nav-link text-light" href="/public/about">
+              <a class="nav-link text-light" href="/about">
                 About
               </a>
             </li>
             <li>
-              <a class="nav-link text-light" href="/public/items">
+              <a class="nav-link text-light" href="/items">
                 商品一覧
               </a>
             </li>
@@ -69,17 +69,17 @@
           <% elsif customer_signed_in? %>
               <!--customerログイン状態の際に、表示したいheaderのメニューを記載-->
             <li>
-              <%= link_to public_mypage_customers_path(current_customer),class:"nav-link text-light" do %> <!--hrefでログインユーザーページを指定する方法がわからない-->
+              <%= link_to mypage_customers_path(current_customer),class:"nav-link text-light" do %> <!--hrefでログインユーザーページを指定する方法がわからない-->
                 マイページ                                    <!-- link to passの形に書き換えて解決。パスの後にclass指定することで、CSSを適応させることができる。-->
               <% end %>
             </li>
             <li>
-              <a class="nav-link text-light" href="/public/items">
+              <a class="nav-link text-light" href="/items">
                 商品一覧
               </a>
             </li>
             <li>
-              <%= link_to public_cart_items_path(current_customer),class:"nav-link text-light" do %> <!--hrefでログインユーザーページを指定する方法がわからない-->
+              <%= link_to cart_items_path(current_customer),class:"nav-link text-light" do %> <!--hrefでログインユーザーページを指定する方法がわからない-->
                 カート                                    <!-- link to passの形に書き換えて解決。パスの後にclass指定することで、CSSを適応させることができる。-->
               <% end %>
             </li>
@@ -90,12 +90,12 @@
             </li>
             <% else %>
             <li>
-              <a class="nav-link text-light" href="/public/about">
+              <a class="nav-link text-light" href="/about">
                 About
               </a>
             </li>
             <li>
-              <a class="nav-link text-light" href="/public/items">
+              <a class="nav-link text-light" href="/items">
                 商品一覧
               </a>
             </li>
