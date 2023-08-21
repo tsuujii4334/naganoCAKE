@@ -3,7 +3,7 @@
     <div class="col">
     <span>商品一覧</span><span>(全<%= @items.count%>件)</span>
       <% @items.each do |item| %>
-        <%= link_to public_show_items_path(item.id) do %>
+        <%= link_to show_items_path(item.id) do %>
           <div><%= image_tag item.get_image(100,100) %></div>
           <div><%= item.name %></div>
         <% end %>

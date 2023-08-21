@@ -22,12 +22,12 @@
         <% @items.each do |item| %>
         <tr>
           <td>
-            <%= link_to public_show_items_path(item.id) do %>
+            <%= link_to show_items_path(item.id) do %>
               <%= image_tag item.get_image(100,100) %>
             <% end %>
           </td>
           <td>
-            <%= link_to public_show_items_path(item.id) do %>
+            <%= link_to show_items_path(item.id) do %>
               <%= item.name %>
             <% end %>
           </td>
