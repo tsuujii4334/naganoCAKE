@@ -9,9 +9,13 @@
        <%= f.radio_button :payment_method, "transfer" %>
        <%= f.label :payment_method_transfer, "銀行振込" %>
       <p>お届け先</p>
-       <%= f.radio_button :address %><!--お届け先周りを質問する。-->
-       <%= f.label :address %>
-       <%= f.label :name %>
+       <span>ご自身の住所</span>
+       <div>
+        <%= f.label current_customer.address %>
+       </div>
+       <div>
+        <%= f.label current_customer.full_name %>
+       </div>
        <%= f.submit "確認画面へ進む" %>
       <% end %>
     </div>

@@ -10,11 +10,11 @@
             <th>小計</th>
         </thead>
         <tbody>
-        <% @orders.each do |order| %>
+        <% @order.each do |order| %>
             <tr>
                 <td><%= order.item.name %></td>
                 <td><%= order.item.with_tax_price %></td>
-                <td><%= order.amount %></td>
+                <td><%= order.order_details.amount %></td>
                 <td><%= order.subtotal %></td>
             </tr>
         <% end %>
