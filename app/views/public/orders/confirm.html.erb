@@ -10,13 +10,14 @@
             <th>小計</th>
         </thead>
         <tbody>
-        <% @order.each do |order| %>
+        <% @cart_items.each do |cart_item| %>
             <tr>
-                <td><%= order.item.name %></td>
-                <td><%= order.item.with_tax_price %></td>
-                <td><%= order.order_details.amount %></td>
-                <td><%= order.subtotal %></td>
+                <td><%= cart_item.item.name %></td>
+                <td><%= cart_item.item.price %></td>
+                <td><%= cart_item.amount %></td>
+                <td><%= cart_item.item.price*cart_item.amount %></td>
             </tr>
+             <% @total +=  @total + cart_item.item.price*cart_item.amount %>
         <% end %>
         </tbody>
       </table>
@@ -30,8 +31,8 @@
         </thead>
         <tbody>
           <th><%= @postage %></th>
-          <th><% @total +=  @total + order.subtotal %></th>
-          <th><% @total + @postage %></th>
+          <th><%= @total %></th>
+          <th><%= @total + @postage %></th>
         </tbody>
       </table>
     </div>
@@ -41,13 +42,13 @@
       <div>
         <span>支払い方法</span>
         <span>
-          <%= f.label :payment_method %>
+          <%= @order.payment_method_i18n %>
         </span>
       </div>
       <div>
         <span>お届け先</span>
         <span>
-          <%= f.label :address %>
+          <%= @order.address %>
         </span>
       </div>
         <%= link_to "注文を確定する", orders_completion_path,:class => "btn btn-success ms-3" %>
