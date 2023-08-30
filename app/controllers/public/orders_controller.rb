@@ -16,7 +16,10 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-
+    @order = Order.new
+    @order.customer_id = current_customer.id
+    @order.save
+    redirect_to order_completion_path
   end
 
   def index
@@ -25,11 +28,7 @@ class Public::OrdersController < ApplicationController
   def show
   end
 
-private
-  def order_detail_parans
-
-  end
-
+ private
   def order_params
       params.require(:order).permit(:payment_method, :address)
   end
