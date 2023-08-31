@@ -51,14 +51,15 @@
           <%= @order.address %>
         </span>
       </div>
-        <%= link_to "注文を確定する", orders_completion_path,:class => "btn btn-success ms-3" %>
         <!--hidden_fieldを使ってorderテーブルにセーブする-->
         <%= form_with model: @order , url:  orders_create_path, method: :post do |f| %>
-          <%= f.hidden_field :postal_code, :value => @order.customer.postal_code %><!--hidden_fieldの書き方を質問する-->
+          <%= f.hidden_field :postal_code, :value => @order.customer.postal_code %><!--hidden_fieldの書き方を質問する → 合ってた-->
           <%= f.hidden_field :total_amount, :value => @total + @postage %>
           <%= f.hidden_field :postage, :value => @postage %>
           <%= f.hidden_field :address, :value => @order.customer.address %>
           <%= f.hidden_field :addressee, :value => @order.customer.full_name %>
+          <%= f.hidden_field :payment_method, :value => @order.payment_method %>
+          <%= f.submit "確認画面へ進む" %>
         <% end %>
     </div>
   </div>
