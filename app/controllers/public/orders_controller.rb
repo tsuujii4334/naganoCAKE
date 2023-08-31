@@ -8,6 +8,7 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.postal_code = current_customer.postal_code
     @order.address = current_customer.address
+    @order.addressee = current_customer.full_name
     @total = 0
     @postage = 800 #postage→送料
   end
@@ -19,10 +20,11 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @order.save
-    redirect_to order_completion_path
+    redirect_to orders_completion_path
   end
 
   def index
+    @orders = current_customer.orders.all
   end
 
   def show

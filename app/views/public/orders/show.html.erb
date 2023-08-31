@@ -1,0 +1,24 @@
+<div class ="contaier px-5">
+  <div class="row">
+    <h2>注文履歴詳細</h2>
+    <div class="col-7">
+      <p>注文情報</p><!--テーブルを盾に並べる-->
+      <table>
+            <th>注文日</th>
+            <th>配送先</th>
+            <th>支払方法</th>
+            <th>ステータス</th>
+            <tr>
+                <td><%= cart_item.item.name %></td>
+                <td><%= cart_item.item.price %></td>
+                <td><%= cart_item.amount %></td>
+                <td><%= cart_item.item.price*cart_item.amount %></td>
+            </tr>
+      </table>
+    </div>
+    <div class="col-5">
+      <p>請求情報</p>
+      
+    </div>
+  </div>
+</div>
