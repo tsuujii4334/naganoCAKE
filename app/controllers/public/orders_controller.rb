@@ -25,9 +25,15 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders = current_customer.orders.all
+    @order_details = order.order_details
+    @items = @order_details.item.all
   end
 
   def show
+    @order = Order.find(order_params)
+    @postage = 800
+    @order_details = @order.order_details
+    @item = @order_details.item
   end
 
  private

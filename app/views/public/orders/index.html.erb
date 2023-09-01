@@ -15,7 +15,9 @@
             <tr>
                 <td><%= order.updated_at %></td>
                 <td><%= order.address %></td>
-                <td><%= order.item.name %></td>
+                <td>
+                    <%= @order_details.@items%>                      <!--注文商品の書き方を質問する。-->
+                </td>
                 <td><%= order.total_amount %></td>
                 <td>
                   <%= link_to "表示する", show_order_path(order.id), :class => "btn btn-primary ms-3" %>
