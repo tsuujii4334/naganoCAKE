@@ -16,7 +16,9 @@
                 <td><%= order.updated_at %></td>
                 <td><%= order.address %></td>
                 <td>
-                    <%= @order_details.@items%>                      <!--注文商品の書き方を質問する。-->
+                   <% order.order_details.each do |order_detail| %>
+                     <%= order_detail.item.name %>
+                   <% end %>
                 </td>
                 <td><%= order.total_amount %></td>
                 <td>
