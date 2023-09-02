@@ -42,20 +42,18 @@
       <table>
         <tr>
           <th>商品</th>
-          <td><%=  %></td><!--商品名の買い方を質問する-->
-        </tr>
-        <tr>
-          <th>単価（税込）</th>
-          <td><%= @order_details.unit_price %></td>
-        </tr>
-        <tr>
+          <th>単価(税込み)</th>
           <th>個数</th>
-          <td><%= @order_details.quantity %></td>
-        </tr>
-        <tr>
           <th>小計</th>
-          <td><%= @order_details.unit_price * @order_details.quantity %></td>
         </tr>
+        <% @order_details.each do |order_detail| %>
+        <tr>
+          <td><%= order_detail.item.name %></td>
+          <td><%= order_detail.unit_price %></td>
+          <td><%= order_detail.quantity %></td>
+          <td><%= order_detail.unit_price*order_detail.quantity %></td>
+        </tr>
+        <% end %>
       </table>
     </div>
   </div>

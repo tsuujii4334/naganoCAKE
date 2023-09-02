@@ -40,7 +40,7 @@ class Public::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @postage = 800
-    @order_details = @order.order_details
+    @order_details = @order.order_details.all
     @item = @order_details.item
   end
 

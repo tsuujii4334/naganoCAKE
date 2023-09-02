@@ -2,6 +2,9 @@
   <div class="row">
     <div class="col">
       <h2>ショッピングカート</h2>
+      <span>
+        <%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete, :class => "btn btn-danger ms-3" %>
+      </span>
       <table>
         <thead>
             <th>商品名</th>
@@ -30,7 +33,30 @@
         <% end %>
         </tbody>
       </table>
-      <%= link_to "情報入力に進む", orders_new_path,:class => "btn btn-primary ms-3" %>
     </div>
   </div>
+  <div class="row">
+    <div class="col-2">
+      <%= link_to "買い物を続ける", items_path, :class => "btn btn-primary ms-3" %>
+    </div>
+    <div class="col px-6">
+    </div>
+    <div class="col px-4">
+      <table>
+        <tr>
+          <th>
+            合計金額
+          </th>
+          <td>
+            <% @total %><!--合計金額の書き方を質問する-->
+          </td>
+        </tr>
+      </table>
+    </div>
+    </div>
+    <div class="row">
+      <div>
+        <%= link_to "情報入力に進む", orders_new_path,:class => "btn btn-success ms-3" %>
+      </div>
+    </div>
 </div>
