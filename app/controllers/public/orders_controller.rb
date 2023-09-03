@@ -29,6 +29,7 @@ class Public::OrdersController < ApplicationController
       @order_detail.quantity = cart_item.amount
       @order_detail.save
     end
+    CartItem.destroy_all
     redirect_to orders_completion_path
   end
 
@@ -41,7 +42,6 @@ class Public::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @postage = 800
     @order_details = @order.order_details.all
-    @item = @order_details.item
   end
 
  private

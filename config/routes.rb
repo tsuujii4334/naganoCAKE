@@ -21,8 +21,8 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
     get  'orders/:id' => 'orders#show', as: 'show_order'
     get 'cart_items' => 'cart_items#index'
     patch 'cart_items/:id' => 'cart_items#update', as: 'update_cart_item'
-    delete 'cart_items/:id' => 'cart_items#destroy', as: 'destroy_cart_item'
-    delete 'cart_items/destroy_all' => '/cart_items/destroy_all'
+    delete 'cart_items/destroy_all' => '/cart_items/destroy_all'              #-優先順位を考慮-httpメソッドとURLが被ってる場合、idは下に書く
+    delete 'cart_items/:id' => 'cart_items#destroy', as: 'destroy_cart_item'  #-優先順位を考慮
     post 'cart_items/create' => '/cart_item'
     get 'customers/mypage' => 'customers#show', as: 'mypage_customers'
     get 'customers/edit'
