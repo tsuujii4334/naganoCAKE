@@ -38,7 +38,7 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
 
   namespace :admin do
 
-
+    get 'homes/top' => '/admin'
     get 'orders/:id' => 'orders#show', as: 'show_order'
     get 'customers/index' => '/admin/customer'
     get 'customers/:id' => 'customers#show', as: 'show_customer'
@@ -50,7 +50,7 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
     get 'items/:id' => 'items#show', as: 'show_item'
     get 'items/:id/edit' => 'items#edit', as: 'edit_item'
     patch 'items/:id' => 'items#update', as: 'update_item'
-    get 'homes/top' => '/admin'
+
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
