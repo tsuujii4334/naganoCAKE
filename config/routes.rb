@@ -38,7 +38,7 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
 
   namespace :admin do
 
-    get 'homes/top' => '/admin'
+    get '/' => 'homes#top'
     get 'orders/:id' => 'orders#show', as: 'show_order'
     get 'customers/index' => '/admin/customer'
     get 'customers/:id' => 'customers#show', as: 'show_customer'
