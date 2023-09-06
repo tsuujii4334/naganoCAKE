@@ -13,9 +13,10 @@
        </thead>
        <tbody>
         <% @orders.each do |order| %>
+        <% @total_quantity = 0 %>
         <tr>
           <td>
-            <%= link_to admin_show_customer_path(customer.id) do %>
+            <%= link_to admin_show_order_path(order.id) do %>
               <%= order.created_at %>
             <% end %>
           </td>
@@ -23,11 +24,14 @@
               <%= order.customer.full_name %>
           </td>
           <td>
-            <%= customer. %>
+            <% order.order_details.each do |order_detail|%>
+              <% @total_quantity +=  @total_quantity + order_detail.quantity %>
+            <% end %>
+            <%= @total_quantity %>
           </td>
         </tr>
         <% end %>
-        <%= paginate customers %>
+        <%= paginate @orders %>
         </tbody>
       </table>
     </div>

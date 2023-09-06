@@ -1,7 +1,8 @@
 class Admin::OrdersController < ApplicationController
-  
+
   def show
-    @order_detail = order_detail.find(params[:id])
+    @order = Order.find(params[:id])
     @postage = 800
+    @total_quantity = 0
   end
 end
