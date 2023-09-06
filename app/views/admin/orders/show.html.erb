@@ -47,6 +47,7 @@
           <td>
             <%= order_detail.unit_price * order_detail.quantity %>
           </td>
+          <% @total_price += @total_price + (order_detail.unit_price * order_detail.quantity) %>
         <% end %>
      </table>
    </div>
@@ -55,16 +56,19 @@
        <tr>
          <th>商品合計</th>
          <td>
+           <%= @total_price %>
          </td>
        </tr>
        <tr>
          <th>送料</th>
-         <td><% @postage %></td>
+         <td>
+           <%= @postage %>
+         </td>
        </tr>
        <tr>
          <th>請求金額合計</th>
          <td>
-
+           <%= @total_price + @postage %>
          </td>
        </tr>
      </table>
