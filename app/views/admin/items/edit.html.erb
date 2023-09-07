@@ -1,6 +1,6 @@
 <h3>商品編集</h3>
 
-<%= form_with model: @items, url: admin_update_item_path(@item.id), method: :patch do |f| %>
+<%= form_with model: @item, url: admin_update_item_path(@item.id), method: :patch do |f| %>
 
   <div class="field">
       <%= f.label :商品画像 %>
@@ -14,9 +14,9 @@
 
   <div class="field">
       <%= f.label :商品説明 %>
-      <%= f.text_field :introducton, autofocus: true, autocomplete: "introducton" %>
+      <%= f.text_field :introduction, autofocus: true, autocomplete: "introducton" %>
   </div>
-  
+
   <div class="field">
       <%= f.label :税抜価格 %>
       <%= f.number_field :price, autofocus: true, autocomplete: "price" %>
