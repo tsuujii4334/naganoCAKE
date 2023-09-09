@@ -1,28 +1,58 @@
-<h3>商品編集</h3>
-
-<%= form_with model: @item, url: admin_update_item_path(@item.id), method: :patch do |f| %>
-
-  <div class="field">
-      <%= f.label :商品画像 %>
-      <%= f.file_field :image, accept:"image/*" %>
+<div class="container px-8"><!--このpxはpadding x方向を意味する。pyはy方向。-->
+  <div class="row">
+    <div class="col-md-4">
+      <h3>商品編集</h3>
+    </div>
   </div>
-
-  <div class="field">
-      <%= f.label :商品名 %>
-      <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  <div class="row">
+    <div class="col-md-7">
+      <%= form_with model: @item, url: admin_update_item_path(@item.id), method: :patch do |f| %>
+      <table>
+        <tr>
+          <th>
+            <div class="field">
+                <%= f.label :商品画像 %>
+            </div>
+          </th>
+          <td>
+            <%= f.file_field :image, accept:"image/*" %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <div class="field">
+                <%= f.label :商品名 %>
+            </div>
+          </th>
+          <td>
+            <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <div class="field">
+              <%= f.label :商品説明 %>
+            </div>
+          </th>
+          <td>
+            <%= f.text_field :introduction, autofocus: true, autocomplete: "introducton" %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <div class="field">
+              <%= f.label :税抜価格 %>
+            </div>
+          </th>
+          <td>
+            <%= f.number_field :price, autofocus: true, autocomplete: "price" %>
+          </td>
+        </tr>
+      </table>
+        <div class="actions">
+          <%= f.submit "変更を保存", class:'btn btn-success' %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="field">
-      <%= f.label :商品説明 %>
-      <%= f.text_field :introduction, autofocus: true, autocomplete: "introducton" %>
-  </div>
-
-  <div class="field">
-      <%= f.label :税抜価格 %>
-      <%= f.number_field :price, autofocus: true, autocomplete: "price" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "変更を保存" %>
-  </div>
-<% end %>
+</div>
