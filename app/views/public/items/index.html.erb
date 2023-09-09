@@ -1,6 +1,8 @@
 <div class ="contaier px-5">
   <div class="row">
+    <div class="col">
      <span>商品一覧</span><span>(全<%= @items.count%>件)</span>
+    </div> 
   </div>
   <div class="row">
     <% @items.each do |item| %>
@@ -9,7 +11,7 @@
           <div><%= image_tag item.get_image(100,100) %></div>
           <div><%= item.name %></div>
         <% end %>
-        <div>￥<%= item.price %></div>
+        <div>￥<%= item.with_tax_price %></div>
     </div>
     <% end %>
     <%= paginate @items %>
