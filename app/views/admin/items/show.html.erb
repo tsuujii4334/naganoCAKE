@@ -1,18 +1,40 @@
 <!--itemshowの記述-->
-<div class="container">
+<div class="container px-5">
   <div class="row">
     <div class="col-md-3">
-      
-<h3>商品詳細</h3>
-  <%= image_tag @item.get_image(100,100) %><!--モデルでエラー-->
-        <p>商品名</p>
+      <h3>商品詳細</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag @item.get_image(100,100) %>
+    </div>
+    <div class="col-md-8">
+      <table>
+        <tr>
+          <th>商品名</th>
+          <td>
            <%= @item.name %>
-        <p>商品説明</p>
-           <%= @item.introduction %>
-        <p>税込価格</br><!--税込み税抜きの書き方が-->
-           (税抜価格)
-        </p>
-           <%= @item.price %>
-  <%= link_to admin_edit_item_path(@item.id),class:"btn btn-block btn-outline-secondary" do %>
-    <p>編集する</p>
-  <% end %>
+          </td>
+        <tr>
+          <th>商品説明</th>
+          <td>
+            <%= @item.introduction %>
+          </td>
+        </tr>
+        <tr>
+          <th>税込価格<br>
+              (税抜価格)
+          </th>
+          <td>
+            <%= @item.price %>
+           (<%= @item.with_tax_price %>)円
+          </td>
+        </tr>
+      </table>
+    <%= link_to admin_edit_item_path(@item.id),class:"btn btn-success btn-sm" do %>
+      <p>編集する</p>
+    <% end %>
+    </div>
+  </div>
+</div>

@@ -1,8 +1,18 @@
-<div class="contaier">
+<div class="contaier px-5">
+ <div class="row">
+   <div class="col-md-10">
+     <h2>商品一覧</h2>
+   </div>
+   <div class="col-md-2">
+    <%= link_to admin_items_new_path do %>
+      <p>商品新規登録</p>
+     <% end %>
+   </div>
+ </div>
  <div class="row">
   <div class="col-md-8 offset-md-1">
    <!--itemindexの記述-->
-    <h2>商品一覧</h2>
+    
       <table class="table table-hover table-inverse">
         <thead>
           <tr>
@@ -30,6 +40,7 @@
         <% end %>
         </tbody>
       </table>
+      <%= paginate @items %>
     </div>
   </div>
 </div>
