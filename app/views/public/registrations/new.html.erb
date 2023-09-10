@@ -4,6 +4,11 @@
     <%= render "public/shared/error_messages", resource: resource %>
     <div class="row">
       <div class="col-md-3">
+        <h3>新規会員登録</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
         <p>名前</p>
       </div>
       <div class="col-md-4">
@@ -84,13 +89,12 @@
     </div>
     <div class="row">
       <div class="col-md-3">
-        <p>パスワード(6文字以上)</p>
+        <% if @minimum_password_length %>
+          <em>パスワード(<%= @minimum_password_length %> 文字以上)</em>
+        <% end %><br />
       </div>
       <div class="col-md-4">
         <div class="field">
-          <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> 文字以上)</em>
-          <% end %><br />
           <%= f.password_field :password, autocomplete: "new-password" %>
         </div>
       </div>
@@ -103,7 +107,6 @@
       </div>
       <div class="col-md-4">
         <div class="field">
-          <%= f.label :password_confirmation %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
         </div>
       </div>
@@ -115,18 +118,19 @@
       </div>
       <div class="col-md-4">
         <div class="actions">
-          <%= f.submit "新規登録" %>
+          <%= f.submit "新規登録", class:'btn btn-success' %>
         </div>
       </div>
       <div class="col-md-5">
       </div>
     </div>
     <% end %>
+    <h2>既に登録済みの方</h2>
+  <p>
+    <%= link_to "こちら", new_customer_session_path %>からログインしてください
+  </p>
   </div>
 
 
 
-<h2>既に登録済みの方</h2>
-<p>こちらからログインしてください</p>
 
-<%= link_to "ログイン", new_customer_session_path %>

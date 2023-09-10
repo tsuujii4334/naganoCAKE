@@ -31,10 +31,16 @@
            (<%= @item.with_tax_price %>)円
           </td>
         </tr>
+        <tr>
+          <th>
+          </th>
+          <td>
+            <%= link_to admin_edit_item_path(@item.id),class:"btn btn-success btn-sm" do %>
+              <p>編集する</p>
+            <% end %>
+          </td>
+        </tr>
       </table>
-    <%= link_to admin_edit_item_path(@item.id),class:"btn btn-success btn-sm" do %>
-      <p>編集する</p>
-    <% end %>
     </div>
   </div>
 </div>
