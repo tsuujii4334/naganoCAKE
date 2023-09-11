@@ -1,9 +1,13 @@
 <div class ="contaier px-5">
   <div class="row">
-    <h2>注文履歴詳細</h2>
-    <div class="col-7">
+    <div class="col">
+      <h2>注文履歴詳細</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
       <p>注文情報</p><!--テーブルを盾に並べる-->
-      <table>
+      <table border="2">
         <tr>
           <th>注文日</th>
           <td><%= @order.updated_at %></td>
@@ -20,7 +24,7 @@
     </div>
     <div class="col-5">
       <p>請求情報</p>
-      <table>
+      <table border="2">
         <tr>
           <th>商品合計</th>
           <td><%= @order.total_amount - @postage %></td>
@@ -37,9 +41,9 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-5">
+    <div class="col-6">
       <p>注文内容</p>
-      <table>
+      <table border="2">
         <tr>
           <th>商品</th>
           <th>単価(税込み)</th>

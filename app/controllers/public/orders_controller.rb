@@ -34,14 +34,14 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_customer.orders.all
+    @orders = current_customer.orders.all.order(created_at: :desc)
 
   end
 
   def show
     @order = Order.find(params[:id])
     @postage = 800
-    @order_details = @order.order_details.all
+    @order_details = @order.order_details
   end
 
  private

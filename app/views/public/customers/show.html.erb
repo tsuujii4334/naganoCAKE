@@ -7,7 +7,7 @@
     <%= link_to customers_edit_path(current_customer),class:"btn btn-success" do %>
      <p>編集する</p>
     <% end %>
-      <table class="table table-hover table-inverse">
+      <table border="2">
        <th></th>
        <tbody>
         <tr>
@@ -73,7 +73,7 @@
         </tbody>
       </table>
       <span>注文履歴</span>
-     <%= link_to orders_path(@orders),class:"btn btn-outline-secondary" do %>
+     <%= link_to orders_path(@orders),class:"btn btn-primary" do %>
       <p>一覧を見る</p>
      <% end %>
     </div>

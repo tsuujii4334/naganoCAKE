@@ -1,12 +1,12 @@
 <!--itemshowの記述-->
-<div class="container">
+<div class="container py-3">
   <div class="row">
     <div class="col-md-3">
        <%= image_tag @item.get_image(100,100) %>
     </div>
     <div class="col-md-9">
        <h2><%= @item.name %></h2>
-           <%= @item.introduction %>
+           <%= @item.introduction %><br/>
          ￥<%= @item.with_tax_price %>(税込み)
            <%= form_with model: @cart_item, url: cart_items_create_path, method: :post do |f| %><!--pathの指定が不明 → 不要だった-->
              <%= f.hidden_field :item_id, :value => @item.id %>

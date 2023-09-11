@@ -25,7 +25,7 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
     delete 'cart_items/:id' => 'cart_items#destroy', as: 'destroy_cart_item'  #-優先順位を考慮
     post 'cart_items/create' => '/cart_item'
     get 'customers/mypage' => 'customers#show', as: 'mypage_customers'
-    get 'customers/edit'
+    get 'customers/edit/:id' => 'customers#edit', as: 'customers_edit'
     patch 'customers/update' => '/customer'
     get 'customers/confirm'
     patch 'customers/withdrawal' => '/customers/withdrawal'
