@@ -1,6 +1,6 @@
 
   <div class="container px-5,py-10">
-    <%= form_with model: @customer, url: customers_update_path,method: :patch do |f| %>
+    <%= form_with model: @customer, url: update_customer_path(@customer.id),method: :patch do |f| %>
 
     <div class="row">
       <div class="col-md-3">
