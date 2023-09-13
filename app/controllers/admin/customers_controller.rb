@@ -12,9 +12,12 @@ class Admin::CustomersController < ApplicationController
   end
 
   def update
-    customer = Customer.find(params[:id])
-    customer.update(customer_params)
-    redirect_to admin_show_customer_path(customer.id)
+    @customer = Customer.find(params[:id])
+    if @customer.update(customer_params)
+      redirect_to admin_show_customer_path(@customer.id)
+    else
+      render 'edit' #遷移先でインスタンス変数を使っているため、updateでもインスタンス変数を使用している。
+    end
   end
   
   private

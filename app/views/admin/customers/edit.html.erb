@@ -1,7 +1,15 @@
 
   <div class="container px-5,py-10">
     <%= form_with model: @customer,url: admin_update_customer_path do |f| %>
-    <%= render "public/shared/error_messages", resource: resource %>
+    <% if @customer.errors.any? %>                               <!--エラーテンプレ文-->
+      <div id="error_explanation" class="alert alert-danger">     
+        <ul>                                                      
+          <% @customer.errors.full_messages.each do |message| %>  
+            <li><%= message %></li>                               
+          <% end %>                                               
+        </ul>
+      </div>
+    <% end %>
     <div class="row">
       <div class="col-md">
         <h2>
@@ -63,7 +71,7 @@
       </div>
       <div class="col-md-9">
         <div class="field">
-            <%= f.text_field :adress, autofocus: true, autocomplete: "street-address" %>
+            <%= f.text_field :address, autofocus: true, autocomplete: "street-address" %>
         </div>
       </div>
     </div>

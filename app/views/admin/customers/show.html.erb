@@ -67,7 +67,7 @@
            会員ステータス
           </th>
           <td>
-            <% if @customer.is_deleted == true %>
+            <% if @customer.is_deleted == false %>
             <%= "有効" %>
             <% else %>
             <%= "無効" %>
@@ -75,7 +75,7 @@
           </td>
         </tr>
       </table>
-        
+
         <%= link_to admin_edit_customer_path(@customer.id),class:"btn btn-success" do %>
           <p>編集する</p>
         <% end %>
