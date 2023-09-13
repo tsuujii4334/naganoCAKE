@@ -13,11 +13,12 @@
         <% @cart_items.each do |cart_item| %>
             <tr>
                 <td><%= cart_item.item.name %></td>
-                <td><%= cart_item.item.price %></td>
+                <td><%= cart_item.item.with_tax_price %></td>
                 <td><%= cart_item.amount %></td>
-                <td><%= cart_item.item.price*cart_item.amount %></td>
+                    <% each_total = cart_item.item.with_tax_price*cart_item.amount %>
+                <td><%= each_total %></td>
             </tr>
-             <% @total =  @total + cart_item.item.price*cart_item.amount %>
+             <% @total =  @total + each_total %>
         <% end %>
         </tbody>
       </table>
