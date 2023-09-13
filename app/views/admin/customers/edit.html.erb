@@ -1,6 +1,6 @@
 
   <div class="container px-5,py-10">
-    <%= form_with model: @customer do |f| %>
+    <%= form_with model: @customer,url: admin_update_customer_path do |f| %>
     <%= render "public/shared/error_messages", resource: resource %>
     <div class="row">
       <div class="col-md">

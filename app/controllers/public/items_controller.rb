@@ -1,5 +1,6 @@
 class Public::ItemsController < ApplicationController
   def index
+    @itemcount = Item.all.count
     @items = Item.all.page(params[:page]).per(8)
   end
 
